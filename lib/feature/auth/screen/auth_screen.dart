@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:food_app_api/common/common.dart';
-import 'package:food_app_api/shared/constants/assets_constants.dart';
-import 'package:food_app_api/shared/themes/pallete.dart';
 
+import '../../../gen/assets.gen.dart';
+import '../../../gen/colors.gen.dart';
 import '../widgets/widgets.dart';
 
 class AuthScreen extends StatelessWidget {
@@ -14,7 +14,7 @@ class AuthScreen extends StatelessWidget {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
-        backgroundColor: Palette.backgroundColor,
+        backgroundColor: ColorName.backgroundColor,
         appBar: AppBar(
           shape:const RoundedRectangleBorder(
               borderRadius: BorderRadius.only(
@@ -24,14 +24,14 @@ class AuthScreen extends StatelessWidget {
           bottom: TabBar(
           
             indicatorSize: TabBarIndicatorSize.label,
-            indicatorColor: Palette.primaryColor,
+            indicatorColor: ColorName.primaryColor,
             tabs: [
            const   Tab(
                 child: Padding(
                   padding:  EdgeInsets.symmetric(horizontal: 40),
                   child: Text(
                     'Login',
-                    style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.black)
+                    style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: ColorName.black)
                   ),
                 ),
               ),
@@ -48,7 +48,7 @@ class AuthScreen extends StatelessWidget {
           ),
           centerTitle: true,
           toolbarHeight: 180,
-          title: Image.asset(AssetsConstants.hat_imgx,scale: 4,),
+          title: Image.asset(Assets.images.hatImgx4.path,scale: 4,),
         ),
         body: TabBarView(
           children: [Login(), Register()],

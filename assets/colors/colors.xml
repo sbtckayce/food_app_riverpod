@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+ <color name="primaryColor">#FF4B3A</color>
+ <color name="backgroundColor">#F2F2F2</color>
+ <color name="buttonColor">#FA4A0C</color>
+ <color name="searchBarColor">#EFEEEE</color>
+ <color name="white">#FFFFFF</color>
+ <color name="black">#000000</color>
+ <color name="green">#008000</color>
+ <color name="red">#FF0000</color>
+ <color name="gray">#999999</color>
+</resources>

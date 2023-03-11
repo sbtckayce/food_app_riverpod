@@ -148,13 +148,14 @@ class __$$_UserModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_UserModel implements _UserModel {
+class _$_UserModel extends _UserModel {
   _$_UserModel(
       {required this.address,
       required this.email,
       required this.fullName,
       required this.password,
-      required this.phone});
+      required this.phone})
+      : super._();
 
   factory _$_UserModel.fromJson(Map<String, dynamic> json) =>
       _$$_UserModelFromJson(json);
@@ -208,13 +209,14 @@ class _$_UserModel implements _UserModel {
   }
 }
 
-abstract class _UserModel implements UserModel {
+abstract class _UserModel extends UserModel {
   factory _UserModel(
       {required final String address,
       required final String email,
       required final String fullName,
       required final String password,
       required final String phone}) = _$_UserModel;
+  _UserModel._() : super._();
 
   factory _UserModel.fromJson(Map<String, dynamic> json) =
       _$_UserModel.fromJson;

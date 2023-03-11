@@ -1,20 +1,26 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:food_app_api/common/custom_button.dart';
-import 'package:food_app_api/shared/constants/assets_constants.dart';
+import 'package:food_app_api/gen/assets.gen.dart';
 
-import 'package:food_app_api/shared/themes/pallete.dart';
+
+
 import 'package:go_router/go_router.dart';
+
+import '../../../gen/colors.gen.dart';
 
 class StartedScreen extends StatelessWidget {
   const StartedScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+   
     return Scaffold(
       body: Container(
         width: double.infinity,
         decoration: const BoxDecoration(
-          color: Palette.primaryColor,
+          color: ColorName.primaryColor,
         ),
         child: SafeArea(
           child: Column(
@@ -24,9 +30,9 @@ class StartedScreen extends StatelessWidget {
                 padding: const EdgeInsets.only(top: 40, left: 35, right: 35),
                 child: CircleAvatar(
                   radius: 32,
-                  backgroundColor: Palette.whiteColor,
+                  backgroundColor: ColorName.white,
                   child: Image.asset(
-                    AssetsConstants.hat_img,
+                    Assets.images.hatImg.path,
                     width: 40,
                     height: 40,
                   ),
@@ -47,7 +53,7 @@ class StartedScreen extends StatelessWidget {
                           .headlineLarge!
                           .copyWith(
                               fontSize: 50,
-                              color: Colors.white,
+                              color: ColorName.white,
                               fontWeight: FontWeight.w900),
                     ),
                     Text(
@@ -57,7 +63,7 @@ class StartedScreen extends StatelessWidget {
                           .headlineLarge!
                           .copyWith(
                               fontSize: 50,
-                              color: Colors.white,
+                              color: ColorName.white,
                               height: 0.8,
                               fontWeight: FontWeight.w900),
                     ),
@@ -70,11 +76,11 @@ class StartedScreen extends StatelessWidget {
                     children: [
                       Expanded(
                           child: Image.asset(
-                        AssetsConstants.person1_img,
+                       Assets.images.person1Img.path,
                       )),
                       Expanded(
                           child: Image.asset(
-                        AssetsConstants.person2_img,
+                        Assets.images.person2Img.path,
                       ))
                     ],
                   ),
@@ -87,7 +93,7 @@ class StartedScreen extends StatelessWidget {
                       height: 100,
                       decoration: const BoxDecoration(boxShadow: [
                         BoxShadow(
-                          color: Palette.primaryColor,
+                          color: ColorName.primaryColor,
                           spreadRadius: 1,
                           blurRadius: 50,
                         )
@@ -97,15 +103,18 @@ class StartedScreen extends StatelessWidget {
                 ],
               ),
               Padding(
-                padding:
-                   const EdgeInsets.only(top: 50, left: 35, right: 35, bottom: 10),
+                padding: const EdgeInsets.only(
+                    top: 50, left: 35, right: 35, bottom: 10),
                 child: CustomButton(
-                    text: 'Get started',
-                    textColor: Palette.primaryColor,
-                    buttonColor: Palette.whiteColor,
-                    onPress: () {
-                      return context.go('/auth');
-                    },),
+                  text: 'Get started',
+                  textColor: ColorName.primaryColor,
+                  buttonColor: ColorName.white,
+                  onPress: () {
+                    // return context.go('/auth');
+                    // return GoRouter.of(context).push('/home');
+                    return context.go('/home');
+                  },
+                ),
               )
             ],
           ),

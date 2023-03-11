@@ -8,10 +8,11 @@ import 'package:food_app_api/shared/themes/app_theme.dart';
 
 void main() {
   Network().init();
+
   runApp(const ProviderScope(child: MyApp()));
 }
 
-class MyApp extends ConsumerStatefulWidget {
+class MyApp extends ConsumerStatefulWidget  {
   const MyApp({super.key});
 
   @override
@@ -19,13 +20,13 @@ class MyApp extends ConsumerStatefulWidget {
 }
 
 class _MyAppState extends ConsumerState<MyApp> {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     final router = ref.watch(goRouterProvider);
     return MaterialApp.router(
+      
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Food API',
       theme: theme(),
       routerConfig: router,
     );

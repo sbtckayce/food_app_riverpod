@@ -1,16 +1,19 @@
 import 'package:dio/dio.dart';
 import 'package:food_app_api/feature/auth/models/user_model.dart';
 import 'package:food_app_api/feature/auth/repository/base_auth_repository.dart';
+import 'package:food_app_api/network/dio_client.dart';
+import 'package:food_app_api/network/endpoint.dart';
 import 'package:food_app_api/network/network.dart';
 
 class AuthRepository extends BaseAuthRepository {
-  final Dio dio = Network().restClient();
-
+ 
+  final DioClient client = DioClient(dio: Dio());
   @override
   Future<void> loginWithUser({required UserModel user}) async {
     final data = {'email': user.email, 'password': user.password};
 
-    await dio.post('/user/sign-in', data: data);
+
+     await client.post('${Endpoints.baseUrl}/user/sign-in', data: data);
   }
 
   @override
@@ -23,6 +26,7 @@ class AuthRepository extends BaseAuthRepository {
       'phone': user.password,
     };
 
-    await Network().restClient().post('/user/sign-up', data: data);
+        await client.post('${Endpoints.baseUrl}/user/sign-up', data: data);
+
   }
 }

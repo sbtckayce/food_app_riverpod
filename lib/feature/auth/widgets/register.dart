@@ -7,6 +7,7 @@ import 'package:food_app_api/feature/auth/repository/auth_repository.dart';
 
 import '../../../common/common.dart';
 
+import '../../../gen/colors.gen.dart';
 import '../../../shared/themes/themes.dart';
 import '../models/models.dart';
 
@@ -19,7 +20,7 @@ class Register extends ConsumerWidget {
   final TextEditingController fullNameController = TextEditingController();
   final TextEditingController phoneController = TextEditingController();
 
-  handleClickRegisterButton() async {
+  register() async {
     String email = emailController.text;
     String fullName = fullNameController.text;
     String password = passwordController.text;
@@ -38,16 +39,16 @@ class Register extends ConsumerWidget {
         msg: "Register successful!",
         toastLength: Toast.LENGTH_SHORT,
         gravity: ToastGravity.BOTTOM,
-        backgroundColor: Colors.green,
-        textColor: Colors.white,
+        backgroundColor: ColorName.white,
+        textColor: ColorName.white,
       );
     }).onError((error, stackTrace) {
       Fluttertoast.showToast(
         msg: error.toString(),
         toastLength: Toast.LENGTH_SHORT,
         gravity: ToastGravity.BOTTOM,
-        backgroundColor: Colors.red,
-        textColor: Colors.white,
+        backgroundColor: ColorName.red,
+        textColor: ColorName.white,
       );
     });
   }
@@ -107,14 +108,14 @@ class Register extends ConsumerWidget {
               style: Theme.of(context)
                   .textTheme
                   .bodyLarge!
-                  .copyWith(color: Colors.redAccent),
+                  .copyWith(color: ColorName.red),
             ),
             const SizedBox(
               height: 50,
             ),
             CustomButton(
-              text: 'Sign Up',
-              onPress: handleClickRegisterButton,
+              text: 'Register',
+              onPress: register,
             )
           ],
         ),
